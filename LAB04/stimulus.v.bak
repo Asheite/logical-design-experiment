@@ -1,0 +1,28 @@
+module stimulus;
+
+ reg [3:0] x, y, z;
+ wire [3:0] d, b;
+
+ 
+ Sub4bits s4( x, y, z, d, b);
+ 
+ initial begin
+   x = 4'b0000;
+   
+   y = 4'b0000;
+   
+   z = 0;
+ end
+ 
+ always #40 z = z + 1;
+ always #20 y = y + 1;
+ always #10 x = x + 1;
+ 
+ 
+ initial begin
+	$monitor($time, " Output x = %b, y = %b, z = %b d = %b, b = %b",  x, y, z, d, b);
+
+
+ end
+
+endmodule
